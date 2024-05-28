@@ -170,10 +170,12 @@ class ConnectFour
     end
     def check_diagonal(token)
         # create an index forcolumns
-        column_index = 0
+        column_index = -1
         # loop through column 3 unless it is nil
         until column_index >= 3
-            break if board[column_index][0].nil?
+            # increase column index
+            column_index += 1
+            next if board[column_index][0].nil?
             # loop through the rows in this column
             row_index = 0
             until row_index >= 5
@@ -213,8 +215,6 @@ class ConnectFour
                 # increase row_index
                 row_index += 1
             end
-            # increase column index
-            column_index += 1
         end
         # if the loop never returns true, return false
         return false
