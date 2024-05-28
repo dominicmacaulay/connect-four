@@ -76,6 +76,7 @@ class ConnectFour
     def game_won?(player)
         # return true if any methods return true
         if check_diagonal(player.token) || check_horizontal(player.token) || check_vertical(player.token)
+            display_board
             puts "#{player.name} has won!"
             return true
         end
@@ -127,12 +128,11 @@ class ConnectFour
         return false
     end
     def check_vertical(token)
-        # make counter to see how many are in a row
-        count = 0
         # for each array in baord do
-        board.each do |array|
+        @board.each do |array|
             # make sure that the starting slot is not nil 
-            break if array[2].nil?
+            next if array[2].nil?
+            count = 0
             # make a next slot counter at 3 to go upwards
             next_slot = 3
             # if the nested array's index 2 matches the token, check upwards and downwards
@@ -163,8 +163,6 @@ class ConnectFour
                 if count >= 4
                     return true
                 end
-                # reset count
-                count = 0
             end
         end
         # if it doesnt return true in the loop, return false
