@@ -194,7 +194,9 @@ class ConnectFour
                             row += 1
                             break if column > 6 || row > 5 || board[column][row].nil?
                         end
-                        return true if count >= 4
+                        if count >= 4
+                            return true
+                        end
                     end
                     # reset variables
                     count = 1
@@ -207,9 +209,11 @@ class ConnectFour
                             count += 1
                             column += 1
                             row -= 1
-                            break if column > 6 || row > 5 || board[column][row].nil?
+                            break if column < 0 || row < 0 || board[column][row].nil?
                         end
-                        return true if count >= 4
+                        if count >= 4
+                            return true
+                        end
                     end
                 end
                 # increase row_index
