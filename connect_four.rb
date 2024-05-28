@@ -9,8 +9,9 @@ class ConnectFour
         display_greeting
         # make a player variable to keep track of the player
         player = player_1
+        last_player = player_2
         # loop through the game until either a player wins or the game fills up
-        until game_won?(player) || board_full?
+        until game_won?(last_player) || board_full?
             # at the top of each game, display the board
             display_board
             puts "#{player.name}'s turn:"
@@ -28,8 +29,10 @@ class ConnectFour
             # change players
             if player == player_1
                 player = player_2
+                last_player = player_1
             else
                 player = player_1
+                last_player = player_2
             end
         end
     end
@@ -222,6 +225,7 @@ class ConnectFour
         # make a variable for the full board
         full_board = fill_board
         # display the header
+        puts 
         puts "1 | 2 | 3 | 4 | 5 | 6 | 7"
         # make a variable to keep track of the row index
         index = 5
@@ -259,4 +263,4 @@ class Player
     end
 end
 game = ConnectFour.new
-# game.play
+game.play
