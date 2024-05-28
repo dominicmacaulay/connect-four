@@ -89,7 +89,7 @@ class ConnectFour
         # make a index tracker
         index = 0
         # loop through each horizontal level in the board array
-        until index >= 5
+        until index > 5
             # ensure that the spot is not nil
             break if board[3].nil? || board[3][index].nil?
             # check if the middle slot is the same as the token
@@ -178,7 +178,7 @@ class ConnectFour
             next if board[column_index][0].nil?
             # loop through the rows in this column
             row_index = 0
-            until row_index >= 5
+            until row_index > 5
                 if board[column_index][row_index] == token
                     # increase count
                     count = 1
@@ -187,12 +187,12 @@ class ConnectFour
                     row = row_index + 1
                     # check upwards
                     unless board[column][row].nil?
-                        while board[column][row] == token && column <= 6 && row <= 5
+                        while board[column][row] == token
                             # increase count, column, and row, and check the next place for nil
                             count += 1
                             column += 1
                             row += 1
-                            break if board[column][row].nil?
+                            break if column > 6 || row > 5 || board[column][row].nil?
                         end
                         return true if count >= 4
                     end
@@ -202,12 +202,12 @@ class ConnectFour
                     row = row_index - 1
                     # check downwards
                     unless board[column][row].nil?
-                        while board[column][row] == token && column >= 0 && row >= 0
+                        while board[column][row] == token
                             # increase count and column, decrease row, and check next place for nil
                             count += 1
                             column += 1
                             row -= 1
-                            break if board[column][row].nil?
+                            break if column > 6 || row > 5 || board[column][row].nil?
                         end
                         return true if count >= 4
                     end
