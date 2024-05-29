@@ -264,5 +264,3 @@ class Player
         @name = name
     end
 end
-game = ConnectFour.new
-game.play

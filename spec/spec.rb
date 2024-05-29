@@ -28,7 +28,7 @@ describe ConnectFour do
         win_board = [["x", "o", "x", "x"], ["x", "x", "o"], ["o", "o", "x"], ["o", "o", "x", "x", "x", "x"], 
         ["o", "o", "o", "o", "x", "o"], ["x", "o", "o", "o", "x"], ["o", "x", "x", "o", "x", "x"]]
         lose_board = [["o", "o", "x"], ["x", "x", "o"], ["x", "o", "x"], ["o", "x", "x", "o", "o"], 
-        ["o", "x", "o", "o", "x", "o"], ["x", "o", "x", "o", "x"], ["o", "x", "x", "x", "o", "o"]]
+        ["o", "x", "o", "o", "x", "o"], ["x", "o", "x", "o", "x"], ["x", "x", "o", "x", "o", "o"]]
 
         describe "check horizontal method" do
             it "can check horizontal wins for 'x'" do
@@ -110,7 +110,7 @@ describe ConnectFour do
             end
         end
 
-        describe "check board full method" do
+        describe "check board full m---ethod" do
             it "returns true if board is full" do
                 board = [[1,1,1,1,1,1,], [1,1,1,1,1,1], [1,1,1,1,1,1], [1,1,1,1,1,1], [1,1,1,1,1,1], [1,1,1,1,1,1], [1,1,1,1,1,1]]
                 test = ConnectFour.new(board)
